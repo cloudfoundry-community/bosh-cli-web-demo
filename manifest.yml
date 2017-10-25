@@ -1,0 +1,7 @@
+applications:
+- name: bosh-ui-demo
+  buildpack: https://github.com/cloudfoundry/multi-buildpack
+  health-check-type: http
+  instances: 1
+  memory: 256M
+  stack: cflinuxfs2
