@@ -23,7 +23,7 @@ Staging package for app bosh-cli-web-demo in org system / space dev as admin...
 
 This example screenshot shows the `bosh` CLI being used directly. Configuration for the CLI is done via environment variables.
 
-![demo](https://github.com/cloudfoundry-community/bosh-cli-web-demo/raw/master/public/bosh-cli-web-demo.png)
+![demo](https://github.com/cloudfoundry-community/bosh-cli-web-demo/raw/master/public/bosh-ui-demo.png)
 
 The template for this page directly runs `bosh` CLI commands; see [app/views/help/version.html.erb](https://github.com/cloudfoundry-community/bosh-cli-web-demo/blob/master/app/views/help/version.html.erb):
 
