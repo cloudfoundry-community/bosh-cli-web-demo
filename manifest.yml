@@ -1,5 +1,5 @@
 applications:
-- name: bosh-ui-demo
+- name: bosh-cli-web-demo
   buildpack: https://github.com/cloudfoundry/multi-buildpack
   health-check-type: http
   instances: 1

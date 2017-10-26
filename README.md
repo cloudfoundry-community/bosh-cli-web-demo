@@ -9,7 +9,7 @@ This repo is a demonstration of:
 An example from staging this app will show a custom Debian repository being used:
 
 ```
-Staging package for app bosh-ui-demo in org system / space dev as admin...
+Staging package for app bosh-cli-web-demo in org system / space dev as admin...
    -----> Running go build supply
    -----> Apt Buildpack version 0.0.2
    -----> Updating apt cache
@@ -23,7 +23,7 @@ Staging package for app bosh-ui-demo in org system / space dev as admin...
 
 This example screenshot shows the `bosh` CLI being used directly. Configuration for the CLI is done via environment variables.
 
-![demo](public/bosh-ui-demo.png)
+![demo](public/bosh-cli-web-demo.png)
 
 You can deploy this demo, or in general use multi-buildpack, on any Cloud Foundry. If you have a newer Cloud Foundry then you can try the `cf v3-push` method which brings multi-buildpack as a first-class citizen of the `cf` CLI.
 
@@ -47,10 +47,10 @@ export BOSH_ENVIRONMENT=<alias>
 
 cf push --no-start
 
-cf set-env bosh-ui-demo BOSH_ENVIRONMENT $(bosh int ~/.bosh/config --path /environments/alias=$BOSH_ENVIRONMENT/url)
-cf set-env bosh-ui-demo BOSH_CLIENT $(bosh int ~/.bosh/config --path /environments/alias=$BOSH_ENVIRONMENT/username)
-cf set-env bosh-ui-demo BOSH_CLIENT_SECRET "$(bosh int ~/.bosh/config --path /environments/alias=$BOSH_ENVIRONMENT/password)"
-cf set-env bosh-ui-demo BOSH_CA_CERT "$(bosh int ~/.bosh/config --path /environments/alias=$BOSH_ENVIRONMENT/ca_cert)"
+cf set-env bosh-cli-web-demo BOSH_ENVIRONMENT $(bosh int ~/.bosh/config --path /environments/alias=$BOSH_ENVIRONMENT/url)
+cf set-env bosh-cli-web-demo BOSH_CLIENT $(bosh int ~/.bosh/config --path /environments/alias=$BOSH_ENVIRONMENT/username)
+cf set-env bosh-cli-web-demo BOSH_CLIENT_SECRET "$(bosh int ~/.bosh/config --path /environments/alias=$BOSH_ENVIRONMENT/password)"
+cf set-env bosh-cli-web-demo BOSH_CA_CERT "$(bosh int ~/.bosh/config --path /environments/alias=$BOSH_ENVIRONMENT/ca_cert)"
 
 cf push
 ```
@@ -64,14 +64,14 @@ Using new `cf v3-push` commands we can provide multiple `-b buildpack` flags. Th
 ```
 export BOSH_ENVIRONMENT=<alias>
 
-cf v3-push bosh-ui-demo \
+cf v3-push bosh-cli-web-demo \
   -b https://github.com/drnic/apt-buildpack#custom-repositories \
   -b ruby_buildpack
 
-cf v3-set-env bosh-ui-demo BOSH_ENVIRONMENT $(bosh int ~/.bosh/config --path /environments/alias=$BOSH_ENVIRONMENT/url)
-cf v3-set-env bosh-ui-demo BOSH_CLIENT $(bosh int ~/.bosh/config --path /environments/alias=$BOSH_ENVIRONMENT/username)
-cf v3-set-env bosh-ui-demo BOSH_CLIENT_SECRET "$(bosh int ~/.bosh/config --path /environments/alias=$BOSH_ENVIRONMENT/password)"
-cf v3-set-env bosh-ui-demo BOSH_CA_CERT "$(bosh int ~/.bosh/config --path /environments/alias=$BOSH_ENVIRONMENT/ca_cert)"
+cf v3-set-env bosh-cli-web-demo BOSH_ENVIRONMENT $(bosh int ~/.bosh/config --path /environments/alias=$BOSH_ENVIRONMENT/url)
+cf v3-set-env bosh-cli-web-demo BOSH_CLIENT $(bosh int ~/.bosh/config --path /environments/alias=$BOSH_ENVIRONMENT/username)
+cf v3-set-env bosh-cli-web-demo BOSH_CLIENT_SECRET "$(bosh int ~/.bosh/config --path /environments/alias=$BOSH_ENVIRONMENT/password)"
+cf v3-set-env bosh-cli-web-demo BOSH_CA_CERT "$(bosh int ~/.bosh/config --path /environments/alias=$BOSH_ENVIRONMENT/ca_cert)"
 
-cf v3-restart bosh-ui-demo
+cf v3-restart bosh-cli-web-demo
 ```

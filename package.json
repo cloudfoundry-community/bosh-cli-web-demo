@@ -1,5 +1,5 @@
 {
-  "name": "bosh-ui-demo",
+  "name": "bosh-cli-web-demo",
   "private": true,
   "dependencies": {}
 }
