@@ -51,6 +51,8 @@ You can deploy this demo, or in general use multi-buildpack, on any Cloud Foundr
 You will probably need to open a new Cloud Foundry Security Group to allow this application to access your BOSH director. The following will create a new security group that only allows access to your BOSH director over ports 25555 and 22 (for ssh tunnels).
 
 ```
+export BOSH_ENVIRONMENT=<alias>
+
 cf create-security-group boshenv-$BOSH_ENVIRONMENT <(./bin/bosh-security-group)
 current_org_name=$(bosh int ~/.cf/config.json --path /OrganizationFields/Name)
 current_space_name=$(bosh int ~/.cf/config.json --path /SpaceFields/Name)
