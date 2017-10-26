@@ -69,7 +69,7 @@ cf set-env bosh-cli-web-demo BOSH_CLIENT $(bosh int ~/.bosh/config --path /envir
 cf set-env bosh-cli-web-demo BOSH_CLIENT_SECRET "$(bosh int ~/.bosh/config --path /environments/alias=$BOSH_ENVIRONMENT/password)"
 cf set-env bosh-cli-web-demo BOSH_CA_CERT "$(bosh int ~/.bosh/config --path /environments/alias=$BOSH_ENVIRONMENT/ca_cert)"
 
-cf push
+cf restart
 ```
 
 ### Deploy using cf v3-push
