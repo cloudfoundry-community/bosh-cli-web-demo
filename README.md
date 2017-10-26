@@ -23,7 +23,7 @@ Staging package for app bosh-cli-web-demo in org system / space dev as admin...
 
 This example screenshot shows the `bosh` CLI being used directly. Configuration for the CLI is done via environment variables.
 
-![demo](public/bosh-cli-web-demo.png)
+![demo](https://github.com/cloudfoundry-community/bosh-cli-web-demo/raw/master/public/bosh-cli-web-demo.png)
 
 You can deploy this demo, or in general use multi-buildpack, on any Cloud Foundry. If you have a newer Cloud Foundry then you can try the `cf v3-push` method which brings multi-buildpack as a first-class citizen of the `cf` CLI.
 
@@ -57,7 +57,7 @@ cf push
 
 ### Deploy using cf v3-push
 
-NOTE: at the time of writing I wasn't having success with v3 apps and security groups. This means that whilst `bosh` CLI is installed, it probably cannot connect outside of Cloud Foundry to your BOSH environment. Hopefully this issue is resolved in future and this section will work as expected. 
+NOTE: at the time of writing I wasn't having success with v3 apps and security groups. This means that whilst `bosh` CLI is installed, it probably cannot connect outside of Cloud Foundry to your BOSH environment. Hopefully this issue is resolved in future and this section will work as expected.
 
 Using new `cf v3-push` commands we can provide multiple `-b buildpack` flags. The final buildpack must be the runtime language buildpack. This application is a Ruby application, so `-b ruby_buildpack` is the last buildpack.
 
