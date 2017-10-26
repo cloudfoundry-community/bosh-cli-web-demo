@@ -1,0 +1,17 @@
+#!/bin/bash
+
+: ${BOSH_ENVIRONMENT:?required}
+
+bosh_director_url=$(bosh int ~/.bosh/config --path /environments/alias=$BOSH_ENVIRONMENT/url)
+bosh_director_ip=$(echo $bosh_director_url | sed -e "s%https://%%" | sed -e "s%:25555%%")
+
+cat <<JSON
+[
+  {
+    "protocol": "tcp",
+    "destination": "${bosh_director_ip}/32",
+    "ports": "22,25555",
+    "description": "Allow access to BOSH environment ${BOSH_ENVIRONMENT}"
+  }
+]
+JSON
