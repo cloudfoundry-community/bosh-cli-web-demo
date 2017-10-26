@@ -30,7 +30,7 @@ The template for this page directly runs `bosh` CLI commands; see [app/views/hel
 ```html
 <pre>
 $ bosh -v
-<%= `bosh -v || bosh2 -v || echo "ERROR: bosh CLI missing"` %>
+<%= `bosh -v || echo "ERROR: bosh CLI missing, install it using multi-buildpack/apt-buildpack"` %>
 
 $ bosh env --tty
 <%= `bosh env --tty` %>
