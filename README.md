@@ -25,9 +25,26 @@ This example screenshot shows the `bosh` CLI being used directly. Configuration 
 
 ![demo](https://github.com/cloudfoundry-community/bosh-cli-web-demo/raw/master/public/bosh-cli-web-demo.png)
 
-You can deploy this demo, or in general use multi-buildpack, on any Cloud Foundry. If you have a newer Cloud Foundry then you can try the `cf v3-push` method which brings multi-buildpack as a first-class citizen of the `cf` CLI.
+The template for this page directly runs `bosh` CLI commands; see [app/views/help/version.html.erb](https://github.com/cloudfoundry-community/bosh-cli-web-demo/blob/master/app/views/help/version.html.erb):
+
+```html
+<pre>
+$ bosh -v
+<%= `bosh -v || bosh2 -v || echo "ERROR: bosh CLI missing"` %>
+
+$ bosh env --tty
+<%= `bosh env --tty` %>
+
+$ bosh deployments
+<%= `bosh deployments` %>
+</pre>
+```
+
+The `bosh` CLI can be completely configured to target and authenticate against a BOSH environment via environment variables. See the deployment instructions for how to set these for a Cloud Foundry application.
 
 ## Deploy to Cloud Foundry
+
+You can deploy this demo, or in general use multi-buildpack, on any Cloud Foundry. If you have a newer Cloud Foundry then you can try the `cf v3-push` method which brings multi-buildpack as a first-class citizen of the `cf` CLI.
 
 ### Open Security Group
 
