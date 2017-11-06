@@ -10,7 +10,7 @@ cat <<JSON
   {
     "protocol": "tcp",
     "destination": "${bosh_director_ip}/32",
-    "ports": "22,25555",
+    "ports": "22,8443,25555",
     "description": "Allow access to BOSH environment ${BOSH_ENVIRONMENT}"
   }
 ]

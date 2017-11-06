@@ -67,14 +67,20 @@ export BOSH_ENVIRONMENT=<alias>
 cf push --no-start
 
 cf set-env bosh-cli-web-demo BOSH_ENVIRONMENT $(bosh int ~/.bosh/config --path /environments/alias=$BOSH_ENVIRONMENT/url)
+cf set-env bosh-cli-web-demo BOSH_CA_CERT "$(bosh int ~/.bosh/config --path /environments/alias=$BOSH_ENVIRONMENT/ca_cert)"
+
 cf set-env bosh-cli-web-demo BOSH_CLIENT $(bosh int ~/.bosh/config --path /environments/alias=$BOSH_ENVIRONMENT/username)
 cf set-env bosh-cli-web-demo BOSH_CLIENT_SECRET "$(bosh int ~/.bosh/config --path /environments/alias=$BOSH_ENVIRONMENT/password)"
-cf set-env bosh-cli-web-demo BOSH_CA_CERT "$(bosh int ~/.bosh/config --path /environments/alias=$BOSH_ENVIRONMENT/ca_cert)"
 
 cf restart bosh-cli-web-demo
 ```
 
-Note, if your BOSH environment is using UAA, rather than basic auth, then will need to explicitly set `BOSH_CLIENT` and `BOSH_CLIENT_SECRET` variables as they won't be stored in `~/.bosh/config`.
+Note, if your BOSH environment is using UAA, rather than basic auth, then will need to explicitly set `BOSH_CLIENT` and `BOSH_CLIENT_SECRET` variables as they won't be stored in `~/.bosh/config`. For example:
+
+```
+cf set-env bosh-cli-web-demo BOSH_CLIENT "$BOSH_CLIENT"
+cf set-env bosh-cli-web-demo BOSH_CLIENT_SECRET "$BOSH_CLIENT_SECRET"
+```
 
 ### Deploy using cf v3-push
 
